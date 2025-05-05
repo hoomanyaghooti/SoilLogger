@@ -8,8 +8,8 @@
 
 ## 2. محتویات پوشه
 - `esp32_soil_temp_http.ino` : کد Arduino  
-- `README.md`           : مستندات پروژه  
-- `docs/`               : شامل شماتیک سخت‌افزار (PDF)
+- `README.md`                : مستندات پروژه  
+- `docs/`                    : شامل شماتیک سخت‌افزار (PDF)
 
 ## 3. سخت‌افزار
 | قطعه                       | مدل/نوع                  | دلیل انتخاب                              |
@@ -96,31 +96,49 @@
 - `TIME_SYNC_MODE = 2`: **ترکیبی** (اول NTP، سپس سرور)
 
 ## 11. نسخه‌گذاری با Git (Git Workflow ساده)
-- **راه‌اندازی مخزن**:
-  ```bash
-  git init
-  git add .
-  git commit -m "Initial project setup"
-  ```
-- **ساخت شاخه برای ویژگی جدید**:
-  ```bash
-  git checkout -b feature/button-wake
-  ```
-- **ثبت تغییرات**:
-  ```bash
-  git add .
-  git commit -m "feat(button): add 60s OLED wake on button press"
-  ```
-- **بازگشت به main و ادغام**:
-  ```bash
-  git checkout main
-  git merge feature/button-wake
-  ```
+1. **ایجاد مخزن محلی**:
+   ```bash
+   git init
+   git add .
+   git commit -m "Initial commit without secrets"
+   git branch -M main
+   ```
+2. **وصل کردن به GitHub**:
+   ```bash
+   git remote add origin https://github.com/hoomanyaghooti/SoilLogger.git
+   ```
+3. **ارسال اولین نسخه**:
+   ```bash
+   git push -u origin main
+   ```
+4. **گردش کار روزانه**:
+   ```bash
+   git add .
+   git commit -m "توضیح کوتاه"
+   git push
+   ```
 
-## 12. تست و اشکال‌زدایی
+## 12. دسترسی و کلون مخزن
+- **لینک مخزن در GitHub**:  
+  https://github.com/hoomanyaghooti/SoilLogger
+- **Clone با HTTPS**:
+  ```bash
+  git clone https://github.com/hoomanyaghooti/SoilLogger.git
+  ```
+- **Clone با SSH**:
+  ```bash
+  git clone git@github.com:hoomanyaghooti/SoilLogger.git
+  ```
+- **راهنمای گام‌به‌گام GitHub**:  
+  برای اطلاعات بیشتر در مورد Git و GitHub، به مستندات رسمی مراجعه کنید:  
+  https://docs.github.com/get-started  
+- **دسترسی خصوصی**:  
+  اگر مخزن Private است، از طریق **Settings > Manage access** در GitHub، کاربر مصاحبه‌کننده را به‌عنوان collaborator دعوت کنید.
+
+## 13. تست و اشکال‌زدایی
 - **Button Wake**: مطمئن شوید با فشردن دکمه OLED روشن شود.  
 - **ارسال HTTP**: در **Serial Monitor** پیام **”Data sent successfully”** را بررسی کنید.  
 - **حالت‌های زمان**: حالت‌های **NTP-only**, **Server-only** و **Hybrid** را تست کنید.
 
-## 13. شماتیک سخت‌افزار
+## 14. شماتیک سخت‌افزار
 شماتیک و دیاگرام جریان در پوشه `docs/` موجود است.
